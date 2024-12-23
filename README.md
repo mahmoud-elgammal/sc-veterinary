@@ -30,8 +30,8 @@ The objective of this project is to utilize blockchain technology to create a se
 
 ## Technology Stack
 
-- **Blockchain Platform**: [Hyperledger Fabric/Ethereum]
-- **Smart Contract Language**: Solidity/Chaincode
+- **Blockchain Platform**: Ethereum
+- **Smart Contract Language**: Solidity
 - **Backend**: Rust
 - **Frontend**: React.js
 - **Database**: Postgres
