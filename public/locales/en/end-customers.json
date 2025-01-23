@@ -1,0 +1,21 @@
+{
+    "patient-therapy-management": "Patient Therapy Management",
+    "safety-reporting": "Safety Reporting",
+    "gdpr-compliance": "GDPR Compliance",
+    "active-patients": "Active Patients",
+    "avg-adherence": "Avg. Adherence",
+    "ae-reports": "AE Reports",
+    "satisfaction": "Satisfaction",
+    "therapy-adherence": "Therapy Adherence",
+    "demographics": "Demographics",
+    "patient-id": "Patient ID",
+    "therapy": "Therapy",
+    "adherence": "Adherence",
+    "outcomes": "Outcomes",
+    "feedback": "Feedback",
+    "last-order": "Last Order",
+    "positive": "Positive",
+    "age-18-30": "18-30",
+    "age-31-50": "31-50",
+    "age-51-plus": "51+"
+}

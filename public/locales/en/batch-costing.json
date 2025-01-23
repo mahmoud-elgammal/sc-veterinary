@@ -1,0 +1,20 @@
+{
+    "batchCostAccounting": "Batch Cost Accounting",
+    "newCostRun": "New Cost Run",
+    "compareStandards": "Compare Standards",
+    "avgCostUnit": "Avg. Cost/Unit",
+    "yieldVariance": "Yield Variance",
+    "materialWaste": "Material Waste",
+    "batchEfficiency": "Batch Efficiency",
+    "batchID": "Batch ID",
+    "materialCost": "Material Cost",
+    "conversionCost": "Conversion Cost",
+    "totalCost": "Total Cost",
+    "costPerUnit": "Cost/Unit",
+    "variance": "Variance",
+    "costBreakdown": "Cost Breakdown",
+    "varianceAnalysis": "Variance Analysis",
+    "material": "Material",
+    "labor": "Labor",
+    "overhead": "Overhead"
+}

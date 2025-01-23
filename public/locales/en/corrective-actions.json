@@ -1,0 +1,24 @@
+{
+    "page-title": "Corrective & Preventive Actions",
+    "initiate-capa": "+ Initiate CAPA",
+    "overdue-actions": "Overdue Actions",
+    "effectiveness-rate": "Effectiveness Rate",
+    "table-headers": {
+      "capa-id": "CAPA ID",
+      "action": "Action",
+      "due-date": "Due Date",
+      "status": "Status",
+      "effectiveness": "Effectiveness",
+      "linked-deviation": "Linked Deviation"
+    },
+    "statuses": {
+      "completed": "Completed",
+      "in-progress": "In Progress",
+      "overdue": "Overdue"
+    },
+    "effectiveness-statuses": {
+      "effective": "Effective",
+      "pending": "Pending",
+      "ineffective": "Ineffective"
+    }
+}

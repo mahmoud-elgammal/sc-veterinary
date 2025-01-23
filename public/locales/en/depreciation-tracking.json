@@ -1,0 +1,20 @@
+{
+    "capex-depreciation-schedule": "CAPEX Depreciation Schedule",
+    "add-asset": "Add Asset",
+    "tax-report": "Tax Report",
+    "total-capex": "Total CAPEX",
+    "accumulated-depreciation": "Accumulated Depreciation",
+    "net-book-value": "Net Book Value",
+    "asset-id": "Asset ID",
+    "equipment": "Equipment",
+    "category": "Category",
+    "acquisition-cost": "Acquisition Cost",
+    "current-value": "Current Value",
+    "depreciation-method": "Depreciation Method",
+    "remaining-life": "Remaining Life",
+    "depreciation-schedule": "Depreciation Schedule",
+    "asset-distribution": "Asset Distribution",
+    "production": "Production",
+    "lab": "Lab",
+    "it": "IT"
+}

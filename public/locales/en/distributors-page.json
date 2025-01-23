@@ -1,0 +1,37 @@
+{
+    "main-heading": "Global Distributor Network",
+    "actions": {
+      "add-region": "Add Region",
+      "compliance-report": "Compliance Report"
+    },
+    "metrics": {
+      "certified-partners": {
+        "title": "Certified Partners",
+        "compliant-text": "98% Compliant"
+      },
+      "avg-delivery-time": {
+        "title": "Avg. Delivery Time"
+      },
+      "license-expirations": {
+        "title": "License Expirations"
+      },
+      "gdp-compliance": {
+        "title": "GDP Compliance"
+      }
+    },
+    "geo-coverage-title": "Geographic Coverage",
+    "table-headers": {
+      "distributor": "Distributor",
+      "region": "Region",
+      "compliance": "Compliance",
+      "otd": "OTD",
+      "licenses": "Licenses",
+      "last-audit": "Last Audit"
+    },
+    "compliance-status": {
+      "gdp-certified": "GDP Certified"
+    },
+    "license-status": {
+      "active": "Active"
+    }
+  }

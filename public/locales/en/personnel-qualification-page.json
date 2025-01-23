@@ -1,0 +1,22 @@
+{
+    "gmp-title": "GMP Personnel Qualification System",
+    "new-training-plan-button": "New Training Plan",
+    "export-compliance-report-button": "Export Compliance Report",
+    "total-qualified-label": "Total Qualified",
+    "training-due-label": "Training Due",
+    "certifications-expiring-label": "Certifications Expiring",
+    "qualification-status-heading": "Qualification Status",
+    "training-timeline-heading": "Training Timeline",
+    "employee-column": "Employee",
+    "role-column": "Role",
+    "certifications-column": "Certifications",
+    "training-progress-column": "Training Progress",
+    "expiry-date-column": "Expiry Date",
+    "status-column": "Status",
+    "active-label": "Active",
+    "compliance-percentage": "98% Compliance",
+    "quality-auditor-role": "Quality Auditor",
+    "qualified-status": "Qualified",
+    "pending-status": "Pending",
+    "expired-status": "Expired"
+  }
