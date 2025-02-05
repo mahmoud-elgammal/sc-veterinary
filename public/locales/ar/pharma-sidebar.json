@@ -1,4 +1,6 @@
 {
+    "employee-management": "Employee Management",
+    "supplier-management": "Supplier Management",
     "batch-production-title": "إنتاج الدُفعات",
     "active-batches": "الدُفعات النشطة",
     "batch-records": "سجلات الدُفعات",
@@ -34,6 +36,7 @@
     "pharmacy-partners": "شركاء الصيدليات",
     "end-customers": "العملاء النهائيون",
     "quality-auditors": "مدققي الجودة",
+    "scrap-products": "إعدام المنتجات",
     "system-status": {
       "cold-chain-active": "السلسلة الباردة نشطة",
       "last-update": "آخر تحديث",

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import {
     Flex,
     Box,
@@ -32,6 +32,7 @@ import {
     LayersIcon,
     PlusIcon
 } from '@radix-ui/react-icons';
+import { useWindowSize } from 'react-use';
 
 interface NavGroupProps extends React.PropsWithChildren {
     title: string
@@ -66,11 +67,31 @@ const NavItem: React.FC<NavItemProps> = ({ icon, badge, children, to }) => (
 
 const PharmaSidebar = () => {
     const { t } = useTranslation('pharma-sidebar');
-    
+    const { height } = useWindowSize();
+
     return (
-        <Box className="relative h-[calc(100vh-80px)] bg-stone-100 border-r border-black/10 w-80 transition-all duration-300">
-            <Flex direction="column" justify="between" className="h-full p-4">
-                <Flex direction="column" gap="4" p="4" className="border-r border-black/10 overflow-x-auto">
+        <Box style={{ height }} className="relative bg-stone-100 border-r border-black/10 w-80 transition-all duration-300 max-h-full">
+            <Flex align="start" gap="4" p="4" className="w-80 bg-stone-100 border-r border-black/10">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Future_Supply_Chains_Logo.jpg/1280px-Future_Supply_Chains_Logo.jpg"
+                    className="h-8"
+                    alt="VetChain"
+                />
+                <Box>
+                    <Text as="p" className="text-xs text-black/80">
+                        <Trans
+                            i18nKey="dashboard-header:by-author"
+                            values={{ author: 'Dr. Mahmoud El-Deeb' }}
+                            components={{ strong: <strong /> }}
+                        />
+                    </Text>
+                    <Text as="p" className="text-[0.6rem] leading-none mt-1 text-black/80">
+                        {t('dashboard-header:version')}
+                    </Text>
+                </Box>
+            </Flex>
+            <Flex direction="column" justify="between" className="p-4 h-full">
+                <Flex direction="column" gap="4" p="4" className="flex-1 overflow-auto">
                     {/* Production Management */}
                     <NavGroup title={t('batch-production-title')}>
                         <NavItem icon={<MixerHorizontalIcon />} badge="3" to="/active-batches">
@@ -79,8 +100,8 @@ const PharmaSidebar = () => {
                         <NavItem icon={<FileTextIcon />} to="/batch-records">
                             {t('batch-records')}
                         </NavItem>
-                        <NavItem icon={<ClipboardIcon />} to="/production-orders">
-                            {t('production-orders')}
+                        <NavItem icon={<ClipboardIcon />} to="/scrap-products">
+                            {t('scrap-products')}
                         </NavItem>
                     </NavGroup>
 
@@ -121,11 +142,8 @@ const PharmaSidebar = () => {
                         <NavItem icon={<TrackNextIcon />} to="/cold-chain-monitoring">
                             {t('cold-chain-monitoring')}
                         </NavItem>
-                        <NavItem icon={<GearIcon />} to="/equipment-maintenance">
+                        <NavItem icon={<CalendarIcon />} to="/equipment-maintenance">
                             {t('equipment-maintenance')}
-                        </NavItem>
-                        <NavItem icon={<CalendarIcon />} to="/preventive-maintenance">
-                            {t('preventive-maintenance')}
                         </NavItem>
                     </NavGroup>
 
@@ -154,9 +172,6 @@ const PharmaSidebar = () => {
 
                     {/* Business Intelligence */}
                     <NavGroup title={t('analytics-title')}>
-                        <NavItem icon={<PieChartIcon />} to="/cost-analysis">
-                            {t('cost-analysis')}
-                        </NavItem>
                         <NavItem icon={<BarChartIcon />} to="/sales-trends">
                             {t('sales-trends')}
                         </NavItem>
@@ -170,8 +185,11 @@ const PharmaSidebar = () => {
                         <NavItem icon={<GlobeIcon />} to="/distributors">
                             {t('distributors')}
                         </NavItem>
-                        <NavItem icon={<GearIcon />} to="/cmos">
-                            {t('contract-manufacturers-cmos')}
+                        <NavItem icon={<GearIcon />} to="/employee-management">
+                            {t('employee-management')}
+                        </NavItem>
+                        <NavItem icon={<GlobeIcon />} to="/supplier-management">
+                            {t('supplier-management')}
                         </NavItem>
                         <NavItem icon={<CrossCircledIcon />} to="/pharmacy-partners">
                             {t('pharmacy-partners')}

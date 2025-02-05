@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
     Card, 
@@ -7,34 +8,104 @@ import {
     Badge, 
     Button, 
     Grid,
-    Text
+    Text,
+    Box,
+    Dialog,
+    TextField
 } from '@radix-ui/themes';
-import { LineChart, Line, PieChart, Pie } from 'recharts';
+import { 
+    LineChart, 
+    Line, 
+    PieChart, 
+    Pie, 
+    XAxis, 
+    YAxis, 
+    CartesianGrid, 
+    Tooltip,
+    Legend,
+    Cell
+} from 'recharts';
 
 const EndCustomers = () => {
   const { t } = useTranslation('end-customers');
+  const [selectedReport, setSelectedReport] = useState('');
+  
   const customers = [
-    {
-      id: 'PAT-04578',
-      therapy: 'Antiparasitic Treatment',
-      adherence: 92,
-      outcomes: 'positive',
-      feedback: 4.7,
-      lastOrder: '2023-07-01'
-    },
+    { id: 'PAT-04578', therapy: 'Antiparasitic Treatment', adherence: 92, outcomes: 'positive', feedback: 4.7, lastOrder: '2023-07-01' },
+    { id: 'PAT-04579', therapy: 'Antifungal Therapy', adherence: 85, outcomes: 'neutral', feedback: 4.2, lastOrder: '2023-07-05' },
+    { id: 'PAT-04580', therapy: 'Antibiotic Course', adherence: 78, outcomes: 'negative', feedback: 3.9, lastOrder: '2023-07-10' },
+  ];
+
+  const adherenceData = [
+    { month: t('jan'), adherence: 85 },
+    { month: t('feb'), adherence: 88 },
+    { month: t('mar'), adherence: 90 },
+    { month: t('apr'), adherence: 87 },
+    { month: t('may'), adherence: 91 },
+    { month: t('jun'), adherence: 93 },
+  ];
+
+  const demographicsData = [
+    { name: t('age-18-30'), value: 25, color: '#3b82f6' },
+    { name: t('age-31-50'), value: 45, color: '#60a5fa' },
+    { name: t('age-51-plus'), value: 30, color: '#93c5fd' },
   ];
 
   return (
-    <Card>
+    <Box p="6">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('patient-therapy-management')}</Heading>
         <Flex gap="3">
-          <Button variant="soft">
-            {t('safety-reporting')}
-          </Button>
-          <Button variant="soft">
-            {t('gdpr-compliance')}
-          </Button>
+          <Dialog.Root>
+            <Dialog.Trigger>
+              <Button variant="soft">{t('safety-reporting')}</Button>
+            </Dialog.Trigger>
+            <Dialog.Content style={{ maxWidth: 450 }}>
+              <Dialog.Title>{t('safety-reporting')}</Dialog.Title>
+              <Dialog.Description mb="4">
+                {t('report-adverse-event')}
+              </Dialog.Description>
+              
+              <Flex direction="column" gap="3">
+                <TextField.Root
+                  placeholder={t('patient-id-placeholder')}
+                  onChange={(e) => setSelectedReport(e.target.value)}
+                />
+                <TextField.Root
+                  placeholder={t('event-description')}
+                  onChange={(e) => setSelectedReport(e.target.value)}
+                />
+              </Flex>
+
+              <Flex gap="3" mt="4" justify="end">
+                <Dialog.Close>
+                  <Button variant="soft" color="gray">
+                    {t('cancel')}
+                  </Button>
+                </Dialog.Close>
+                <Dialog.Close>
+                  <Button>{t('submit-report')}</Button>
+                </Dialog.Close>
+              </Flex>
+            </Dialog.Content>
+          </Dialog.Root>
+
+          <Dialog.Root>
+            <Dialog.Trigger>
+              <Button variant="soft">{t('gdpr-compliance')}</Button>
+            </Dialog.Trigger>
+            <Dialog.Content style={{ maxWidth: 500 }}>
+              <Dialog.Title>{t('gdpr-compliance')}</Dialog.Title>
+              <Text as="div" size="2" mb="4">
+                {t('gdpr-description')}
+              </Text>
+              <Flex gap="3" mt="4" justify="end">
+                <Dialog.Close>
+                  <Button>{t('close')}</Button>
+                </Dialog.Close>
+              </Flex>
+            </Dialog.Content>
+          </Dialog.Root>
         </Flex>
       </Flex>
 
@@ -69,28 +140,42 @@ const EndCustomers = () => {
         <Card style={{ flex: 1 }}>
           <Heading size="4" mb="3">{t('therapy-adherence')}</Heading>
           <div className="h-64">
-            <LineChart width={800} height={250} data={[]}>
-              <Line type="monotone" dataKey="adherence" stroke="#3b82f6" />
+            <LineChart width={800} height={250} data={adherenceData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line 
+                type="monotone" 
+                dataKey="adherence" 
+                stroke="#3b82f6" 
+                strokeWidth={2}
+              />
             </LineChart>
           </div>
         </Card>
+        
         <Card style={{ flex: 1 }}>
           <Heading size="4" mb="3">{t('demographics')}</Heading>
           <div className="h-64">
-            <PieChart width={300} height={250}>
+            <PieChart width={400} height={250}>
               <Pie
-                data={[
-                  { name: t('age-18-30'), value: 25 },
-                  { name: t('age-31-50'), value: 45 },
-                  { name: t('age-51-plus'), value: 30 }
-                ]}
+                data={demographicsData}
                 cx="50%"
                 cy="50%"
                 innerRadius={60}
                 outerRadius={80}
                 paddingAngle={5}
                 dataKey="value"
-              />
+                label
+              >
+                {demographicsData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
             </PieChart>
           </div>
         </Card>
@@ -124,7 +209,7 @@ const EndCustomers = () => {
           ))}
         </Table.Body>
       </Table.Root>
-    </Card>
+    </Box>
   );
 };
 

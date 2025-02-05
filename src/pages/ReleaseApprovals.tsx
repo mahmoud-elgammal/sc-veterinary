@@ -9,7 +9,8 @@ import {
   Dialog,
   TextField,
   ScrollArea,
-  Select
+  Select,
+  Box
 } from '@radix-ui/themes';
 import { 
   CheckCircledIcon,
@@ -35,7 +36,7 @@ const ReleaseApprovals = () => {
   ];
 
   return (
-    <Card>
+    <Box p="6">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('batch-release-authorization')}</Heading>
         <Flex gap="3">
@@ -101,12 +102,55 @@ const ReleaseApprovals = () => {
               <Table.Cell>{batch.releaseDate}</Table.Cell>
               <Table.Cell>
                 <Flex gap="2">
-                  <Button variant="soft" size="1">
-                    <LockClosedIcon /> {t('approve-button')}
-                  </Button>
-                  <Button variant="soft" size="1" color="red">
-                    <CrossCircledIcon /> {t('reject-button')}
-                  </Button>
+                <Dialog.Root>
+                  <Dialog.Trigger>
+                    <Button variant="soft" size="1">
+                      <LockClosedIcon /> {t('approve-button')}
+                    </Button>
+                  </Dialog.Trigger>
+                  <Dialog.Content>
+                    <Dialog.Title>{t('approve-confirmation-title')}</Dialog.Title>
+                    <Dialog.Description>
+                      {t('approve-confirmation-message', { batchId: batch.id })}
+                    </Dialog.Description>
+                    
+                    <Flex gap="3" mt="4" justify="end">
+                      <Dialog.Close>
+                        <Button variant="soft">{t('cancel-button')}</Button>
+                      </Dialog.Close>
+                      <Dialog.Close>
+                        <Button color="green">{t('confirm-button')}</Button>
+                      </Dialog.Close>
+                    </Flex>
+                  </Dialog.Content>
+                </Dialog.Root>
+                <Dialog.Root>
+                  <Dialog.Trigger>
+                    <Button variant="soft" size="1" color="red">
+                      <CrossCircledIcon /> {t('reject-button')}
+                    </Button>
+                  </Dialog.Trigger>
+                  <Dialog.Content>
+                    <Dialog.Title>{t('reject-confirmation-title')}</Dialog.Title>
+                    <Dialog.Description>
+                      {t('reject-confirmation-message', { batchId: batch.id })}
+                    </Dialog.Description>
+                    
+                    <TextField.Root
+                      placeholder={t('rejection-reason-placeholder')}
+                      mt="3"
+                    />
+                    
+                    <Flex gap="3" mt="4" justify="end">
+                      <Dialog.Close>
+                        <Button variant="soft">{t('cancel-button')}</Button>
+                      </Dialog.Close>
+                      <Dialog.Close>
+                        <Button color="red">{t('confirm-button')}</Button>
+                      </Dialog.Close>
+                    </Flex>
+                  </Dialog.Content>
+                </Dialog.Root>
                 </Flex>
               </Table.Cell>
             </Table.Row>
@@ -114,15 +158,15 @@ const ReleaseApprovals = () => {
         </Table.Body>
       </Table.Root>
 
-      <Flex mt="5" gap="3">
+      {/* <Flex mt="5" gap="3">
         <Button variant="soft">
           <MagnifyingGlassIcon /> {t('audit-trail-button')}
         </Button>
         <Button variant="soft">
           {t('export-certificates-button')}
         </Button>
-      </Flex>
-    </Card>
+      </Flex> */}
+    </Box>
   );
 };
 

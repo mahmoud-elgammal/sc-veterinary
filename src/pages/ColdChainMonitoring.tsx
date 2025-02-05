@@ -1,22 +1,178 @@
-import { 
-  Card, 
-  Flex, 
-  Heading, 
-  Text, 
-  Badge, 
-  Table, 
-  Progress, 
-  Button, 
+import {
+  Card,
+  Flex,
+  Heading,
+  Text,
+  Badge,
+  Table,
+  Progress,
+  Button,
   Grid,
-  Box
+  Box,
+  Dialog,
+  Select,
+  TextField
 } from '@radix-ui/themes';
 import {
   GlobeIcon,
   BellIcon,
-  DrawingPinIcon
+  DrawingPinIcon,
+  Cross2Icon
 } from '@radix-ui/react-icons';
 import { LineChart, ReferenceLine, Line } from 'recharts';
 import { useTranslation } from 'react-i18next';
+
+
+
+// Add these components near the top of your ColdChainMonitoring component
+const NewShipmentModal = () => {
+  const { t } = useTranslation('cold-chain-monitoring');
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger>
+        <Button variant="soft">
+          <DrawingPinIcon /> {t('new-shipment')}
+        </Button>
+      </Dialog.Trigger>
+
+      <Dialog.Content style={{ maxWidth: 450 }}>
+        <Flex justify="between" align="center" mb="4">
+          <Dialog.Title>{t('new-shipment')}</Dialog.Title>
+          <Dialog.Close>
+            <Cross2Icon />
+          </Dialog.Close>
+        </Flex>
+
+        <Flex direction="column" gap="3">
+          <TextField.Root placeholder={t('shipment-id')} />
+
+          <TextField.Root placeholder={t('product-name')} />
+
+          <Select.Root>
+            <Select.Trigger placeholder={t('storage-type')} />
+            <Select.Content>
+              <Select.Item value="vaccine">Vaccines</Select.Item>
+              <Select.Item value="pharma">Pharmaceuticals</Select.Item>
+              <Select.Item value="biologics">Biologics</Select.Item>
+            </Select.Content>
+          </Select.Root>
+
+          <Flex gap="3" mt="4" justify="end">
+            <Dialog.Close>
+              <Button variant="soft" color="gray">
+                {t('cancel')}
+              </Button>
+            </Dialog.Close>
+            <Button>{t('create-shipment')}</Button>
+          </Flex>
+        </Flex>
+      </Dialog.Content>
+    </Dialog.Root>
+  )
+};
+
+
+interface Shipment {
+  id: string;
+  product: string;
+  currentTemp: number;
+  location: string;
+  status: string;
+  tempHistory: {
+    time: string;
+    temp: number;
+  }[];
+}
+const ShipmentDetailsModal: React.FC<{ shipment: Shipment }> = ({ shipment }) => {
+  const { t } = useTranslation('cold-chain-monitoring');
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger>
+        <Button variant="soft" size="1">{t('view-details')}</Button>
+      </Dialog.Trigger>
+
+      <Dialog.Content style={{ maxWidth: 500 }}>
+        <Flex justify="between" align="center" mb="4">
+          <Dialog.Title>{t('shipment-details')}</Dialog.Title>
+          <Dialog.Close>
+            <Cross2Icon />
+          </Dialog.Close>
+        </Flex>
+
+        <Flex direction="column" gap="3">
+          <Text size="2"><strong>ID:</strong> {shipment.id}</Text>
+          <Text size="2"><strong>{t('product')}:</strong> {shipment.product}</Text>
+          <Text size="2"><strong>{t('temperature')}:</strong> {shipment.currentTemp}°C</Text>
+          <Text size="2"><strong>{t('location')}:</strong> {shipment.location}</Text>
+
+          <Box mt="2">
+            <Text size="2" weight="bold" mb="2">{t('temperature-history')}</Text>
+            <LineChart width={450} height={100} data={shipment.tempHistory}>
+              <Line
+                type="monotone"
+                dataKey="temp"
+                stroke="#3b82f6"
+                strokeWidth={2}
+                dot={false}
+              />
+            </LineChart>
+          </Box>
+
+          <Flex gap="3" mt="4" justify="end">
+            <Dialog.Close>
+              <Button variant="soft" color="gray">
+                {t('close')}
+              </Button>
+            </Dialog.Close>
+          </Flex>
+        </Flex>
+      </Dialog.Content>
+    </Dialog.Root>
+  )
+};
+
+const ComplianceReportModal = () => {
+  const { t } = useTranslation('cold-chain-monitoring');
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger>
+        <Button variant="soft">{t('export-compliance-report')}</Button>
+      </Dialog.Trigger>
+
+      <Dialog.Content style={{ maxWidth: 400 }}>
+        <Flex justify="between" align="center" mb="4">
+          <Dialog.Title>{t('export-report')}</Dialog.Title>
+          <Dialog.Close>
+            <Cross2Icon />
+          </Dialog.Close>
+        </Flex>
+
+        <Flex direction="column" gap="3">
+          <Select.Root>
+            <Select.Trigger placeholder={t('select-format')} />
+            <Select.Content>
+              <Select.Item value="pdf">PDF</Select.Item>
+              <Select.Item value="csv">CSV</Select.Item>
+              <Select.Item value="excel">Excel</Select.Item>
+            </Select.Content>
+          </Select.Root>
+
+          <TextField.Root type="date" placeholder={t('select-date-range')} />
+
+          <Flex gap="3" mt="4" justify="end">
+            <Dialog.Close>
+              <Button variant="soft" color="gray">
+                {t('cancel')}
+              </Button>
+            </Dialog.Close>
+            <Button color="green">{t('export')}</Button>
+          </Flex>
+        </Flex>
+      </Dialog.Content>
+    </Dialog.Root>
+  )
+};
+
 
 const ColdChainMonitoring = () => {
   const { t } = useTranslation('cold-chain-monitoring');
@@ -40,12 +196,8 @@ const ColdChainMonitoring = () => {
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('active-cold-chain-monitoring')}</Heading>
         <Flex gap="3">
-          <Button variant="soft">
-            <DrawingPinIcon /> {t('new-shipment')}
-          </Button>
-          <Button variant="soft">
-            {t('export-compliance-report')}
-          </Button>
+          <NewShipmentModal />
+          <ComplianceReportModal />
         </Flex>
       </Flex>
 
@@ -102,10 +254,10 @@ const ColdChainMonitoring = () => {
               <Table.Cell>
                 <div className="w-48 h-12">
                   <LineChart width={200} height={50} data={shipment.tempHistory}>
-                    <Line 
-                      type="monotone" 
-                      dataKey="temp" 
-                      stroke={shipment.currentTemp > 5 ? "#ef4444" : "#3b82f6"} 
+                    <Line
+                      type="monotone"
+                      dataKey="temp"
+                      stroke={shipment.currentTemp > 5 ? "#ef4444" : "#3b82f6"}
                       dot={false}
                     />
                     <ReferenceLine y={5} stroke="#ef4444" strokeDasharray="3 3" />

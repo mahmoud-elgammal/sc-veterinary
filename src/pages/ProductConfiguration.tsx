@@ -1,10 +1,10 @@
-import { 
-    Card, 
-    Flex, 
-    Heading, 
-    Table, 
-    Badge, 
-    Button, 
+import {
+    Card,
+    Flex,
+    Heading,
+    Table,
+    Badge,
+    Button,
     Grid,
     Text,
     TextField,
@@ -13,9 +13,10 @@ import {
     Dialog,
     Select,
     TextArea,
-    Checkbox
+    Checkbox,
+    Box
 } from '@radix-ui/themes';
-import { 
+import {
     PlusIcon,
     FileTextIcon,
     Cross2Icon,
@@ -61,25 +62,28 @@ const ProductConfiguration = () => {
                 </Flex>
 
                 <Flex direction="column" gap="4">
-                    <TextField.Root>
-                        <input placeholder={t('new-configuration-modal.product-name-placeholder')} />
+                    <TextField.Root placeholder={t('new-configuration-modal.product-name-placeholder')}>
+                        <TextField.Slot>Name</TextField.Slot>
                     </TextField.Root>
 
                     <TextArea placeholder={t('new-configuration-modal.product-description-placeholder')} />
 
                     <Select.Root defaultValue="ich-q11">
-                        <Select.Trigger />
-                        <Select.Content>
-                            <Select.Item value="ich-q11">
-                                {t('new-configuration-modal.compliance-standards.ich-q11')}
-                            </Select.Item>
-                            <Select.Item value="ich-q8">
-                                {t('new-configuration-modal.compliance-standards.ich-q8')}
-                            </Select.Item>
-                            <Select.Item value="fda">
-                                {t('new-configuration-modal.compliance-standards.fda')}
-                            </Select.Item>
-                        </Select.Content>
+                        <Select.Group>
+                            <Select.Label>Compliance</Select.Label>
+                            <Select.Trigger />
+                            <Select.Content>
+                                <Select.Item value="ich-q11">
+                                    {t('new-configuration-modal.compliance-standards.ich-q11')}
+                                </Select.Item>
+                                <Select.Item value="ich-q8">
+                                    {t('new-configuration-modal.compliance-standards.ich-q8')}
+                                </Select.Item>
+                                <Select.Item value="fda">
+                                    {t('new-configuration-modal.compliance-standards.fda')}
+                                </Select.Item>
+                            </Select.Content>
+                        </Select.Group>
                     </Select.Root>
 
                     <Flex direction="column" gap="2">
@@ -170,7 +174,7 @@ const ProductConfiguration = () => {
                         </Flex>
 
                         <Flex gap="2" mt="4">
-                            <Checkbox /> 
+                            <Checkbox />
                             <Text size="2">{t('view-spec-modal.verification-text')}</Text>
                         </Flex>
                     </Flex>
@@ -199,8 +203,8 @@ const ProductConfiguration = () => {
                                     <Flex align="center" gap="2">
                                         <Text weight="bold">v1.{v}</Text>
                                         <Badge color={v === 0 ? 'blue' : 'gray'}>
-                                            {v === 0 
-                                                ? t('version-history-modal.current') 
+                                            {v === 0
+                                                ? t('version-history-modal.current')
                                                 : t('version-history-modal.archived')}
                                         </Badge>
                                     </Flex>
@@ -220,7 +224,7 @@ const ProductConfiguration = () => {
     );
 
     return (
-        <Card>
+        <Box p="6">
             <NewConfigurationModal />
             <ViewSpecModal />
             <VersionHistoryModal />
@@ -307,7 +311,7 @@ const ProductConfiguration = () => {
                     ))}
                 </Table.Body>
             </Table.Root>
-        </Card>
+        </Box>
     );
 };
 

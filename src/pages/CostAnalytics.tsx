@@ -8,7 +8,8 @@ import {
     Button,
     Grid,
     Progress,
-    Select
+    Select,
+    Box
 } from '@radix-ui/themes';
 import { BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +24,7 @@ const CostAnalysis = () => {
   ];
 
   return (
-    <Card>
+    <Box p="6">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('pharmaceutical-cost-intelligence')}</Heading>
         <Flex gap="3">
@@ -124,7 +125,7 @@ const CostAnalysis = () => {
           ))}
         </Table.Body>
       </Table.Root>
-    </Card>
+    </Box>
   );
 };
 

@@ -1,4 +1,6 @@
 {
+    "employee-management": "Employee Management",
+    "supplier-management": "Supplier Management",
     "batch-production-title": "Batch Production",
     "active-batches": "Active Batches",
     "batch-records": "Batch Records",
@@ -34,6 +36,7 @@
     "pharmacy-partners": "Pharmacy Partners",
     "end-customers": "End Customers",
     "quality-auditors": "Quality Auditors",
+    "scrap-products": "Scrap Products",
     "system-status": {
       "cold-chain-active": "Cold Chain Active",
       "last-update": "Last Update",

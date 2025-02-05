@@ -8,7 +8,11 @@ import {
   Progress, 
   Button, 
   Grid,
-  Box
+  Box,
+  Select,
+  TextArea,
+  Dialog,
+  TextField
 } from '@radix-ui/themes';
 import { useTranslation } from 'react-i18next';
 
@@ -28,9 +32,63 @@ const PreventiveMaintenance = () => {
     <Box p="6" className="flex-1">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('equipment-maintenance-program')}</Heading>
-        <Button variant="soft">
-          {t('new-work-order')}
-        </Button>
+         {/* New Work Order Modal */}
+         <Dialog.Root>
+          <Dialog.Trigger>
+            <Button variant="soft">
+              {t('new-work-order')}
+            </Button>
+          </Dialog.Trigger>
+          <Dialog.Content>
+            <Dialog.Title>{t('new-work-order')}</Dialog.Title>
+            
+            <Flex direction="column" gap="3">
+              <label>
+                <Text as="div" size="2" mb="1" weight="bold">
+                  {t('title')}
+                </Text>
+                <TextField.Root placeholder={t('enter-title')} />
+              </label>
+
+              <label>
+                <Text as="div" size="2" mb="1" weight="bold">
+                  {t('description')}
+                </Text>
+                <TextArea placeholder={t('enter-description')} />
+              </label>
+
+              <label>
+                <Text as="div" size="2" mb="1" weight="bold">
+                  {t('priority')}
+                </Text>
+                <Select.Root>
+                  <Select.Trigger />
+                  <Select.Content>
+                    <Select.Item value="high">{t('high')}</Select.Item>
+                    <Select.Item value="medium">{t('medium')}</Select.Item>
+                    <Select.Item value="low">{t('low')}</Select.Item>
+                  </Select.Content>
+                </Select.Root>
+              </label>
+
+              <label>
+                <Text as="div" size="2" mb="1" weight="bold">
+                  {t('due-date')}
+                </Text>
+                <TextField.Root type="date" />
+              </label>
+
+              <Flex gap="3" mt="4" justify="end">
+                <Dialog.Close>
+                  <Button variant="soft" color="gray">
+                    {t('cancel')}
+                  </Button>
+                </Dialog.Close>
+                <Button>{t('create-order')}</Button>
+              </Flex>
+            </Flex>
+          </Dialog.Content>
+        </Dialog.Root>
       </Flex>
 
       <Grid columns="2" gap="4" mb="5">

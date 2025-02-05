@@ -20,26 +20,7 @@ const DashboardHeader = () => {
     const { t } = useTranslation('dashboard-header');
 
     return (
-        <Flex justify="between" align="center" p="0">
-            <Flex align="start" gap="4" p="4" className="w-80 bg-stone-100 border-r border-black/10">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Future_Supply_Chains_Logo.jpg/1280px-Future_Supply_Chains_Logo.jpg"
-                    className="h-8"
-                    alt="VetChain"
-                />
-                <Box>
-                    <Text as="p" className="text-xs text-black/80">
-                        <Trans
-                            i18nKey="dashboard-header:by-author"
-                            values={{ author: 'Dr. Mahmoud El-Deeb' }}
-                            components={{ strong: <strong /> }}
-                        />
-                    </Text>
-                    <Text as="p" className="text-[0.6rem] leading-none mt-1 text-black/80">
-                        {t('dashboard-header:version')}
-                    </Text>
-                </Box>
-            </Flex>
+        <Flex justify="end" align="center" p="0" py="4" className="w-full">
             <Flex align="center" gap="4" px="6">
                 <Badge color="green" variant="soft" className="px-2 py-1">
                     <GlobeIcon className="w-3.5 h-3.5 mr-1.5" />

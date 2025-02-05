@@ -9,7 +9,10 @@ import {
   Text,
   Button,
   Progress,
-  Box
+  Box,
+  Dialog,
+  Select,
+  TextField
 } from '@radix-ui/themes';
 import { CubeIcon } from '@radix-ui/react-icons';
 
@@ -32,12 +35,56 @@ const MaterialQualification = () => {
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('dashboard-heading')}</Heading>
         <Flex gap="3">
-          <Button variant="soft">
-            {t('new-qualification-button')}
-          </Button>
-          <Button variant="soft">
-            {t('supplier-audit-button')}
-          </Button>
+            {/* New Qualification Modal */}
+            <Dialog.Root>
+            <Dialog.Trigger>
+              <Button variant="soft">{t('new-qualification-button')}</Button>
+            </Dialog.Trigger>
+            <Dialog.Content>
+              <Dialog.Title>{t('new-qualification.title')}</Dialog.Title>
+              <Flex direction="column" gap="3">
+                <TextField.Root placeholder={t('new-qualification.material')} />
+                <TextField.Root placeholder={t('new-qualification.supplier')} />
+                <Select.Root>
+                  <Select.Trigger placeholder={t('new-qualification.type')} />
+                  <Select.Content>
+                    <Select.Item value="api">{t('new-qualification.types.api')}</Select.Item>
+                    <Select.Item value="excipient">{t('new-qualification.types.excipient')}</Select.Item>
+                  </Select.Content>
+                </Select.Root>
+              </Flex>
+              <Flex gap="3" mt="4" justify="end">
+                <Dialog.Close>
+                  <Button variant="soft">{t('cancel')}</Button>
+                </Dialog.Close>
+                <Button>{t('submit')}</Button>
+              </Flex>
+            </Dialog.Content>
+          </Dialog.Root>
+          <Dialog.Root>
+            <Dialog.Trigger>
+              <Button variant="soft">{t('supplier-audit-button')}</Button>
+            </Dialog.Trigger>
+            <Dialog.Content>
+              <Dialog.Title>{t('supplier-audit.title')}</Dialog.Title>
+              <Flex direction="column" gap="3">
+                <Select.Root>
+                  <Select.Trigger placeholder={t('supplier-audit.select-supplier')} />
+                  <Select.Content>
+                    <Select.Item value="pharmachem">PharmaChem Ltd.</Select.Item>
+                    <Select.Item value="other">Other Suppliers</Select.Item>
+                  </Select.Content>
+                </Select.Root>
+                <TextField.Root  placeholder={t('supplier-audit.audit-date')} type="date" />
+              </Flex>
+              <Flex gap="3" mt="4" justify="end">
+                <Dialog.Close>
+                  <Button variant="soft">{t('cancel')}</Button>
+                </Dialog.Close>
+                <Button>{t('schedule-audit')}</Button>
+              </Flex>
+            </Dialog.Content>
+          </Dialog.Root>
         </Flex>
       </Flex>
 

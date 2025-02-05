@@ -5,12 +5,23 @@ import {
   Flex, 
   Heading,
   Card,
-  Text
+  Text,
+  Box,
+  Select,
+  TextField,
+  Dialog,
+  TextArea
 } from '@radix-ui/themes';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const CorrectiveActions = () => {
   const { t } = useTranslation('corrective-actions');
+
+  const [selectedCapa, setSelectedCapa] = useState<any>(null);
+  const [selectedDeviation, setSelectedDeviation] = useState<any>(null);
+  const [isInitiateOpen, setIsInitiateOpen] = useState<any>(false);
+
   const capas = [
     {
       id: 'CAPA-0045',
@@ -23,13 +34,107 @@ const CorrectiveActions = () => {
   ];
 
   return (
-    <Card>
+    <Box p="6">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('page-title')}</Heading>
-        <Button variant="soft">
-          {t('initiate-capa')}
-        </Button>
+        <Dialog.Root open={isInitiateOpen} onOpenChange={setIsInitiateOpen}>
+          <Dialog.Trigger>
+            <Button variant="soft">{t('initiate-capa')}</Button>
+          </Dialog.Trigger>
+
+        <Dialog.Content style={{ maxWidth: 450 }}>
+          <Dialog.Title>{t('initiate-capa')}</Dialog.Title>
+          
+          <Flex direction="column" gap="3">
+            <TextField.Root>
+              <TextField.Slot>{t('capa-id')}</TextField.Slot>
+            </TextField.Root>
+
+            <TextArea 
+              placeholder={t('action-description')} 
+              style={{ height: 100 }}
+            />
+
+            <TextField.Root  type="date">
+              <TextField.Slot>{t('due-date')}</TextField.Slot>
+            </TextField.Root>
+
+            <Select.Root>
+              <Select.Trigger>
+                {/* <Select. placeholder={t('select-status')} /> */}
+              </Select.Trigger>
+              <Select.Content>
+                <Select.Item value="pending">{t('statuses.pending')}</Select.Item>
+                <Select.Item value="in-progress">{t('statuses.in-progress')}</Select.Item>
+              </Select.Content>
+            </Select.Root>
+
+            <Flex gap="3" justify="end">
+              <Button variant="soft" onClick={() => setIsInitiateOpen(false)}>
+                {t('cancel')}
+              </Button>
+              <Button>{t('submit')}</Button>
+            </Flex>
+          </Flex>
+        </Dialog.Content>
+      </Dialog.Root>
       </Flex>
+
+
+          {/* CAPA Details Modal */}
+          <Dialog.Root open={!!selectedCapa} onOpenChange={open => !open && setSelectedCapa(null)}>
+        <Dialog.Content>
+          {selectedCapa && (
+            <>
+              <Dialog.Title>{selectedCapa.id}</Dialog.Title>
+              
+              <Flex direction="column" gap="2">
+                <Text weight="bold">{t('action')}:</Text>
+                <Text>{selectedCapa.description}</Text>
+
+                <Text weight="bold">{t('due-date')}:</Text>
+                <Text>{selectedCapa.dueDate}</Text>
+
+                <Text weight="bold">{t('status')}:</Text>
+                <Badge color={selectedCapa.status === 'completed' ? 'green' : 'amber'}>
+                  {t(`statuses.${selectedCapa.status}`)}
+                </Badge>
+
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    setSelectedDeviation(selectedCapa.relatedDeviation);
+                    setSelectedCapa(null);
+                  }}
+                >
+                  {t('view-linked-deviation')}
+                </Button>
+              </Flex>
+              
+              <Flex gap="3" justify="end" mt="4">
+                <Button onClick={() => setSelectedCapa(null)}>
+                  {t('close')}
+                </Button>
+              </Flex>
+            </>
+          )}
+        </Dialog.Content>
+      </Dialog.Root>
+
+      {/* Deviation Details Modal */}
+      <Dialog.Root open={!!selectedDeviation} onOpenChange={open => !open && setSelectedDeviation(null)}>
+        <Dialog.Content>
+          <Dialog.Title>{selectedDeviation}</Dialog.Title>
+          <Text>{t('deviation-details-placeholder')}</Text>
+          
+          <Flex gap="3" justify="end" mt="4">
+            <Button onClick={() => setSelectedDeviation(null)}>
+              {t('close')}
+            </Button>
+          </Flex>
+        </Dialog.Content>
+      </Dialog.Root>
+
 
       <Flex gap="4" mb="5">
         <Card style={{ flex: 1 }}>
@@ -86,7 +191,14 @@ const CorrectiveActions = () => {
                 </Badge>
               </Table.Cell>
               <Table.Cell>
-                <Button variant="ghost" size="1">
+              <Button 
+                  variant="ghost" 
+                  size="1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedDeviation(capa.relatedDeviation);
+                  }}
+                >
                   {capa.relatedDeviation}
                 </Button>
               </Table.Cell>
@@ -94,7 +206,7 @@ const CorrectiveActions = () => {
           ))}
         </Table.Body>
       </Table.Root>
-    </Card>
+    </Box>
   );
 };
 

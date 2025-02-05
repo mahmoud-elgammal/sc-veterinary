@@ -10,7 +10,8 @@ import {
     Button,
     Grid,
     Progress,
-    Select
+    Select,
+    Box
 } from '@radix-ui/themes';
 import { PieChart, Pie, Cell } from 'recharts';
 
@@ -24,7 +25,7 @@ const CO2Footprint = () => {
     ];
   
     return (
-      <Card>
+      <Box p="6">
         <Flex justify="between" align="center" mb="5">
           <Heading size="6">{t('sustainability-dashboard')}</Heading>
           <Flex gap="3">
@@ -130,7 +131,7 @@ const CO2Footprint = () => {
             {t('aligned-with')}
           </Text>
         </Flex>
-      </Card>
+      </Box>
     );
 };
 

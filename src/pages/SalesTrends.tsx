@@ -8,7 +8,8 @@ import {
   Button,
   Grid,
   Progress,
-  Select
+  Select,
+  Box
 } from '@radix-ui/themes';
 import { 
   PieChartIcon,
@@ -28,7 +29,7 @@ const SalesTrends = () => {
   ];
 
   return (
-    <Card>
+    <Box p="6">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('pharmaceutical-sales-analytics')}</Heading>
         <Flex gap="3">
@@ -123,7 +124,7 @@ const SalesTrends = () => {
           </div>
         </Card>
       </Flex>
-    </Card>
+    </Box>
   );
 };
 

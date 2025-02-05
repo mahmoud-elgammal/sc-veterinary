@@ -16,5 +16,18 @@
     "varianceAnalysis": "Variance Analysis",
     "material": "Material",
     "labor": "Labor",
-    "overhead": "Overhead"
+    "overhead": "Overhead",
+    "createNewCostDesc": "Create a new cost analysis run for selected batches",
+    "costRunName": "Cost Run Name",
+    "enterRunName": "Enter run name...",
+    "selectBatch": "Select Batch",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "compareBatchStandards": "Compare Batch Standards",
+    "selectBatch1": "Select Batch 1",
+    "selectBatch2": "Select Batch 2",
+    "comparisonResults": "Comparison Results",
+    "totalCostDiff": "Total Cost Difference",
+    "materialVariance": "Material Variance",
+    "close": "Close"
 }

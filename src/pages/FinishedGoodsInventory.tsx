@@ -1,17 +1,18 @@
-import { 
-  Table, 
-  Badge, 
-  Card, 
-  Flex, 
-  Heading, 
-  Text, 
+import React, { useState } from 'react';
+import {
+  Table,
+  Badge,
+  Card,
+  Flex,
+  Heading,
+  Text,
   Progress,
   TextField,
   Select,
   Button,
   Box
 } from '@radix-ui/themes';
-import { 
+import {
   BoxIcon,
   CalendarIcon,
   CheckCircledIcon,
@@ -20,12 +21,17 @@ import {
 } from '@radix-ui/react-icons';
 import { BarChart, Bar, XAxis, YAxis } from 'recharts';
 import { useTranslation } from 'react-i18next';
+import NewReceiptModel from '../components/NewReceiptModel';
+import ExportCSVModel from '../components/ExportCSVModel';
 
 const FinishedGoodsInventory = () => {
   const { t } = useTranslation('finished-goods-inventory');
+  const [isNewReceiptOpen, setIsNewReceiptOpen] = useState(false);
+  const [isExportCSVOpen, setIsExportCSVOpen] = useState(false);
+
   const inventory = [
-    { 
-      id: 'FG23045', 
+    {
+      id: 'FG23045',
       product: 'Antiparasitic Injection',
       batch: 'VC23001',
       quantity: 1245,
@@ -41,15 +47,14 @@ const FinishedGoodsInventory = () => {
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('finished-goods-inventory')}</Heading>
         <Flex gap="3">
-          <Button variant="soft">
+          <Button variant="soft" onClick={() => setIsNewReceiptOpen(true)}>
             <CubeIcon /> {t('new-receipt')}
           </Button>
-          <Button variant="soft">
+          <Button variant="soft" onClick={() => setIsExportCSVOpen(true)}>
             {t('export-csv')}
           </Button>
         </Flex>
       </Flex>
-
       <Flex gap="4" mb="5">
         <Card style={{ flex: 1 }}>
           <Flex justify="between" align="center">
@@ -57,14 +62,12 @@ const FinishedGoodsInventory = () => {
             <Heading size="7">245</Heading>
           </Flex>
         </Card>
-        
         <Card style={{ flex: 1 }}>
           <Flex justify="between" align="center">
             <Text size="2" className="text-gray-500">{t('quarantined')}</Text>
             <Heading size="7" className="text-red-500">3</Heading>
           </Flex>
         </Card>
-
         <Card style={{ flex: 2 }} className="h-32">
           <Text size="2" mb="2">{t('inventory-trend')}</Text>
           <BarChart width={300} height={100} data={inventory}>
@@ -72,7 +75,6 @@ const FinishedGoodsInventory = () => {
           </BarChart>
         </Card>
       </Flex>
-
       <Flex gap="3" mb="4">
         <TextField.Root placeholder={t('search-products')} />
         <Select.Root defaultValue="all">
@@ -92,7 +94,6 @@ const FinishedGoodsInventory = () => {
           </Select.Content>
         </Select.Root>
       </Flex>
-
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
@@ -105,7 +106,6 @@ const FinishedGoodsInventory = () => {
             <Table.ColumnHeaderCell>{t('storage')}</Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
-
         <Table.Body>
           {inventory.map((item) => (
             <Table.Row key={item.id}>
@@ -121,7 +121,7 @@ const FinishedGoodsInventory = () => {
               </Table.Cell>
               <Table.Cell>{item.location}</Table.Cell>
               <Table.Cell>
-                <Badge 
+                <Badge
                   color={item.status === 'Released' ? 'green' : 'red'}
                   variant="soft"
                 >
@@ -141,6 +141,9 @@ const FinishedGoodsInventory = () => {
           ))}
         </Table.Body>
       </Table.Root>
+
+      <NewReceiptModel isOpen={isNewReceiptOpen} onClose={() => setIsNewReceiptOpen(false)} />
+      <ExportCSVModel isOpen={isExportCSVOpen} onClose={() => setIsExportCSVOpen(false)} />
     </Box>
   );
 };

@@ -22,5 +22,12 @@
     "reject-button": "Reject",
     "audit-trail-button": "Audit Trail",
     "export-certificates-button": "Export Release Certificates",
-    "direction": "ltr"
+    "direction": "ltr",
+    "approve-confirmation-title": "Confirm Approval",
+    "approve-confirmation-message": "Are you sure you want to approve batch {{batchId}}?",
+    "reject-confirmation-title": "Confirm Rejection",
+    "reject-confirmation-message": "Are you sure you want to reject batch {{batchId}}?",
+    "rejection-reason-placeholder": "Enter rejection reason...",
+    "cancel-button": "Cancel",
+    "confirm-button": "Confirm"
   }

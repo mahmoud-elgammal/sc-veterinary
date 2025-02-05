@@ -17,5 +17,18 @@
     "positive": "Positive",
     "age-18-30": "18-30",
     "age-31-50": "31-50",
-    "age-51-plus": "51+"
+    "age-51-plus": "51+",
+    "jan": "Jan",
+    "feb": "Feb",
+    "mar": "Mar",
+    "apr": "Apr",
+    "may": "May",
+    "jun": "Jun",
+    "report-adverse-event": "Report any adverse events or safety concerns",
+    "patient-id-placeholder": "Patient ID",
+    "event-description": "Event description",
+    "cancel": "Cancel",
+    "submit-report": "Submit Report",
+    "gdpr-description": "All patient data is managed in compliance with GDPR regulations. Patient information is encrypted and access is strictly controlled.",
+    "close": "Close"
 }

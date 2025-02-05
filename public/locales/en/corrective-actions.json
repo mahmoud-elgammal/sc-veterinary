@@ -20,5 +20,11 @@
       "effective": "Effective",
       "pending": "Pending",
       "ineffective": "Ineffective"
-    }
+    },
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "action-description": "Action Description",
+    "select-status": "Select Status",
+    "view-linked-deviation": "View Linked Deviation",
+    "deviation-details-placeholder": "Deviation details will be shown here..."
 }

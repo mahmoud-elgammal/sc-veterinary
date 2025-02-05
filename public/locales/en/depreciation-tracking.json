@@ -16,5 +16,11 @@
     "asset-distribution": "Asset Distribution",
     "production": "Production",
     "lab": "Lab",
-    "it": "IT"
+    "it": "IT",
+    "cancel": "Cancel",
+    "save": "Save",
+    "generate-tax-report": "Generate Tax Report",
+    "tax-report-description": "Select fiscal year and report format:",
+    "generate-report": "Generate Report",
+    "asset-name": "Asset Name"
 }

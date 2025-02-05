@@ -8,7 +8,8 @@ import {
   Button,
   Dialog,
   Progress,
-  Grid
+  Grid,
+  Box
 } from '@radix-ui/themes';
 import {
   PersonIcon,
@@ -36,7 +37,7 @@ const AuditTrailViewer = () => {
   ];
 
   return (
-    <Card>
+    <Box p="6">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('title')}</Heading>
         <Flex gap="3">
@@ -134,7 +135,7 @@ const AuditTrailViewer = () => {
           {t('footerText')}
         </Text>
       </Flex>
-    </Card>
+    </Box>
   );
 };
 

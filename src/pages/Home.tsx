@@ -23,8 +23,8 @@ const Home = () => {
         { date: '05 Jan', temperature: 5, status: 'Delayed' },
         { date: '10 Jan', temperature: -1, status: 'Destroyed' },
     ];
-    return <Box className="h-[calc(100vh-80px)] flex-1">
-        <Grid columns="5" gap="6" p="6" className="h-[calc(100vh-80px)] flex-1">
+    return <Box className="h-fullflex-1">
+        <Grid columns="5" gap="6" p="6" className="h-fullflex-1">
             {/* Main Content */}
             <Box className="col-span-4 space-y-6">
                 {/* Key Metrics */}

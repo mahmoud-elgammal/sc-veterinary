@@ -6,7 +6,11 @@ import {
   Badge, 
   Table, 
   Button, 
-  Grid
+  Grid,
+  Box,
+  Dialog,
+  TextField,
+  Select
 } from '@radix-ui/themes';
 import { MixerHorizontalIcon } from '@radix-ui/react-icons';
 import { useTranslation } from 'react-i18next';
@@ -26,16 +30,73 @@ const EquipmentMaintenance = () => {
   ];
 
   return (
-    <Card>
+    <Box p="6">
       <Flex justify="between" align="center" mb="5">
         <Heading size="6">{t('equipment-maintenance-register')}</Heading>
         <Flex gap="3">
-          <Button variant="soft">
-            <MixerHorizontalIcon /> {t('new-work-order')}
-          </Button>
-          <Button variant="soft">
-            {t('calibration-schedule')}
-          </Button>
+        <Dialog.Root>
+            <Dialog.Trigger>
+              <Button variant="soft">
+                <MixerHorizontalIcon /> {t('new-work-order')}
+              </Button>
+            </Dialog.Trigger>
+            <Dialog.Content>
+              <Dialog.Title>{t('new-work-order')}</Dialog.Title>
+              <Flex direction="column" gap="3">
+                <TextField.Root placeholder={t('title')} />
+                <TextField.Root  placeholder={t('description')} />
+                <Select.Root>
+                  <Select.Trigger placeholder={t('priority')} />
+                  <Select.Content>
+                    <Select.Item value="high">{t('high')}</Select.Item>
+                    <Select.Item value="medium">{t('medium')}</Select.Item>
+                    <Select.Item value="low">{t('low')}</Select.Item>
+                  </Select.Content>
+                </Select.Root>
+                <TextField.Root type="date" placeholder={t('due-date')} />
+                <Flex gap="3" justify="end">
+                  <Dialog.Close>
+                    <Button variant="soft" color="gray">
+                      {t('cancel')}
+                    </Button>
+                  </Dialog.Close>
+                  <Button>{t('submit')}</Button>
+                </Flex>
+              </Flex>
+            </Dialog.Content>
+          </Dialog.Root>
+          <Dialog.Root>
+            <Dialog.Trigger>
+              <Button variant="soft">
+                {t('calibration-schedule')}
+              </Button>
+            </Dialog.Trigger>
+            <Dialog.Content>
+              <Dialog.Title>{t('calibration-schedule')}</Dialog.Title>
+              <Flex direction="column" gap="3">
+                <Select.Root>
+                  <Select.Trigger placeholder={t('select-equipment')} />
+                  <Select.Content>
+                    {equipment.map((item) => (
+                      <Select.Item key={item.id} value={item.id}>
+                        {item.name}
+                      </Select.Item>
+                    ))}
+                  </Select.Content>
+                </Select.Root>
+                <TextField.Root  type="date" placeholder={t('calibration-date')} />
+                <TextField.Root  placeholder={t('technician')} />
+                <Flex gap="3" justify="end">
+                  <Dialog.Close>
+                    <Button variant="soft" color="gray">
+                      {t('cancel')}
+                    </Button>
+                  </Dialog.Close>
+                  <Button>{t('schedule')}</Button>
+                </Flex>
+              </Flex>
+            </Dialog.Content>
+          </Dialog.Root>
         </Flex>
       </Flex>
 
@@ -97,7 +158,7 @@ const EquipmentMaintenance = () => {
           ))}
         </Table.Body>
       </Table.Root>
-    </Card>
+    </Box>
   );
 };
 
