@@ -92,6 +92,7 @@ const PharmaSidebar = () => {
             </Flex>
             <Flex direction="column" justify="between" className="p-4 h-full">
                 <Flex direction="column" gap="4" p="4" className="flex-1 overflow-auto">
+                    
                     {/* Production Management */}
                     <NavGroup title={t('batch-production-title')}>
                         <NavItem icon={<MixerHorizontalIcon />} badge="3" to="/active-batches">
@@ -101,26 +102,38 @@ const PharmaSidebar = () => {
                             {t('batch-records')}
                         </NavItem>
                         <NavItem icon={<ClipboardIcon />} to="/scrap-products">
+                            {t('production-orders')}
+                        </NavItem>
+                        <NavItem icon={<ClipboardIcon />} to="/scrap-products">
                             {t('scrap-products')}
                         </NavItem>
                     </NavGroup>
 
                     {/* Materials Management */}
-                    <NavGroup title={t('materials-control-title')}>
+                    <NavGroup title={t('inventory-management')}>
                         <NavItem icon={<BoxIcon />} to="/finished-goods-inventory">
                             {t('finished-goods-inventory')}
                         </NavItem>
-                        <NavItem icon={<MagnifyingGlassIcon />} to="/material-qualification">
-                            {t('material-qualification')}
+                        <NavItem icon={<BoxIcon />} to="/finished-goods-inventory">
+                            {t('material-inventory')}
+                        </NavItem>
+                        <NavItem icon={<BoxIcon />} to="/finished-goods-inventory">
+                            {t('packaging-inventory')}
                         </NavItem>
                     </NavGroup>
 
-                    <NavGroup title={t('product-definition-title')}>
+                    <NavGroup title={t('product-definition')}>
                         <NavItem icon={<PlusIcon />} to="/product-configuration">
                             {t('product-configuration')}
                         </NavItem>
+                    </NavGroup>
+
+                    <NavGroup title={t('quality-control-title')}>
                         <NavItem icon={<LayersIcon />} to="/component-specification">
                             {t('component-specification')}
+                        </NavItem>
+                        <NavItem icon={<MagnifyingGlassIcon />} to="/material-qualification">
+                            {t('material-qualification')}
                         </NavItem>
                     </NavGroup>
 
@@ -138,7 +151,7 @@ const PharmaSidebar = () => {
                     </NavGroup>
 
                     {/* Supply Chain Operations */}
-                    <NavGroup title={t('supply-chain-title')}>
+                    <NavGroup title={t('logistics-monitoring-title')}>
                         <NavItem icon={<TrackNextIcon />} to="/cold-chain-monitoring">
                             {t('cold-chain-monitoring')}
                         </NavItem>

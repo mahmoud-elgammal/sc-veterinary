@@ -46,7 +46,7 @@ const EmployeeManagement = () => {
       department: 'Logistics', status: 'active', trainingComplete: true, performance: 4.8 },
     { id: 2, name: 'Jane Smith', email: 'jane@supplychain.com', role: 'Inventory Specialist', 
       department: 'Operations', status: 'active', trainingComplete: false, performance: 4.5 },
-    { id: 3, name: 'Mike Johnson', email: 'mike@supplychain.com', role: 'Procurement Officer', 
+    { id: 3, name: 'Mike Johnson', email: 'mike@supplychain.com', role: 'Inventory Specialist', 
       department: 'Purchasing', status: 'inactive', trainingComplete: true, performance: 4.2 },
   ]);
 
@@ -112,7 +112,6 @@ const EmployeeManagement = () => {
                   <Select.Content>
                     <Select.Item value="Manager">{t('warehouse-manager')}</Select.Item>
                     <Select.Item value="Specialist">{t('inventory-specialist')}</Select.Item>
-                    <Select.Item value="Officer">{t('procurement-officer')}</Select.Item>
                   </Select.Content>
                 </Select.Root>
                 <Select.Root>

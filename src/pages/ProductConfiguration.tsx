@@ -163,7 +163,7 @@ const ProductConfiguration = () => {
                                     {selectedProduct.formula.map((comp: any, i: number) => (
                                         <Table.Row key={i}>
                                             <Table.Cell>{comp.component}</Table.Cell>
-                                            <Table.Cell>{comp.percentage}%</Table.Cell>
+                                            <Table.Cell>{comp.percentage}k.g.</Table.Cell>
                                             <Table.Cell>
                                                 <Badge variant="outline">{t('view-spec-modal.usp-standard')}</Badge>
                                             </Table.Cell>
@@ -269,7 +269,7 @@ const ProductConfiguration = () => {
                 <Table.Header>
                     <Table.Row>
                         <Table.ColumnHeaderCell>{t('main-section.table-headers.product-id')}</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.formulation')}</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell>{t('main-section.table-headers.name')}</Table.ColumnHeaderCell>
                         <Table.ColumnHeaderCell>{t('main-section.table-headers.components')}</Table.ColumnHeaderCell>
                         <Table.ColumnHeaderCell>{t('main-section.table-headers.version')}</Table.ColumnHeaderCell>
                         <Table.ColumnHeaderCell>{t('main-section.table-headers.compliance')}</Table.ColumnHeaderCell>

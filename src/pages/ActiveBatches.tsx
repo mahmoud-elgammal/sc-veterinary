@@ -194,3 +194,16 @@ const ActiveBatches = () => {
 };
 
 export default ActiveBatches;
+
+/*
+
+  On-Track
+  Pending
+
+  Stages    
+    - QC Testing
+    - Packaging
+    - Labeling
+    - storage
+
+*/

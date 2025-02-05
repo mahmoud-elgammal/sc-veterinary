@@ -40,6 +40,36 @@ const FinishedGoodsInventory = () => {
       expiry: '2024-12-01',
       temperature: '2-8°C'
     },
+    {
+      id: 'FG23048',
+      product: 'Antiparasitic Injection',
+      batch: 'VC23001',
+      quantity: 400,
+      location: 'Zone B-12',
+      status: 'Released',
+      expiry: '2024-12-01',
+      temperature: '2-8°C'
+    },
+    {
+      id: 'FG23048',
+      product: 'Antiparasitic Injection',
+      batch: 'VC23001',
+      quantity: 800,
+      location: 'Zone B-12',
+      status: 'Released',
+      expiry: '2024-12-01',
+      temperature: '2-8°C'
+    },
+    {
+      id: 'FG23048',
+      product: 'Antiparasitic Injection',
+      batch: 'VC23001',
+      quantity: 1300,
+      location: 'Zone B-12',
+      status: 'Released',
+      expiry: '2024-12-01',
+      temperature: '2-8°C'
+    },
   ];
 
   return (
@@ -100,6 +130,10 @@ const FinishedGoodsInventory = () => {
             <Table.ColumnHeaderCell>{t('product')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('batch')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('quantity')}</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>{t('Free To Use')}</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>{t('Incoming')}</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>{t('outgoing')}</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>{t('Forecasted')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('location')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('status')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('expiry')}</Table.ColumnHeaderCell>
@@ -117,7 +151,19 @@ const FinishedGoodsInventory = () => {
               </Table.Cell>
               <Table.Cell>{item.batch}</Table.Cell>
               <Table.Cell>
-                <Badge variant="outline">{item.quantity} {t('vials-unit')}</Badge>
+                <Badge variant="outline">{item.quantity} {t('units')}</Badge>
+              </Table.Cell>
+              <Table.Cell>
+                <Text size="1">10</Text>
+              </Table.Cell>
+              <Table.Cell>
+                <Text size="1">+20</Text>
+              </Table.Cell>
+              <Table.Cell>
+                <Text size="1">-40</Text>
+              </Table.Cell>
+              <Table.Cell>
+                <Text size="1">100</Text>
               </Table.Cell>
               <Table.Cell>{item.location}</Table.Cell>
               <Table.Cell>
@@ -149,3 +195,10 @@ const FinishedGoodsInventory = () => {
 };
 
 export default FinishedGoodsInventory;
+
+/*
+
+  - Released
+  - Quarantined
+
+*/

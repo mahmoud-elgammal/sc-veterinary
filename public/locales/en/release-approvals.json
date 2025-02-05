@@ -4,7 +4,7 @@
     "filter-all-products": "All Products",
     "filter-pending-release": "Pending Release",
     "pending-releases": "Pending Releases",
-    "batches-count": "{count} Batches",
+    "batches-count": "Batches",
     "oos-results": "OOS Results",
     "batch-count": "1 Batch",
     "table-headers": {

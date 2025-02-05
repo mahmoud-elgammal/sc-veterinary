@@ -184,3 +184,12 @@ const MaterialQualification = () => {
 };
 
 export default MaterialQualification;
+
+/*
+
+  Status
+    - Approved
+    - Rejected
+    - Pending
+
+*/

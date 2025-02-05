@@ -55,7 +55,7 @@ const ReleaseApprovals = () => {
         <Card style={{ flex: 1 }}>
           <Flex direction="column" gap="1">
             <Text size="2">{t('pending-releases')}</Text>
-            <Heading size="7">{t('batches-count', { count: 3 })}</Heading>
+            <Heading size="7">10 {t('batches-count')}</Heading>
           </Flex>
         </Card>
         <Card style={{ flex: 1 }}>

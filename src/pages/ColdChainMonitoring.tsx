@@ -17,7 +17,8 @@ import {
   GlobeIcon,
   BellIcon,
   DrawingPinIcon,
-  Cross2Icon
+  Cross2Icon,
+  StopwatchIcon
 } from '@radix-ui/react-icons';
 import { LineChart, ReferenceLine, Line } from 'recharts';
 import { useTranslation } from 'react-i18next';
@@ -178,7 +179,7 @@ const ColdChainMonitoring = () => {
   const { t } = useTranslation('cold-chain-monitoring');
   const shipments = [
     {
-      id: 'VC23001',
+      id: 'SH-23001',
       product: 'Vaccine Adjuvant',
       currentTemp: 2.8,
       location: 'Warehouse B',
@@ -205,8 +206,8 @@ const ColdChainMonitoring = () => {
         <Card>
           <Flex direction="column" gap="2">
             <Flex align="center" gap="2">
-              <p>{t('thermometer-icon')}</p>
-              <Text size="2">{t('current-temperature')}</Text>
+              <StopwatchIcon />
+              <Text size="2">{t('mean-temperature')}</Text>
             </Flex>
             <Heading size="7">2.8°C</Heading>
             <Badge color="green" variant="soft">{t('within-range')}</Badge>

@@ -17,16 +17,16 @@ import { useTranslation } from 'react-i18next';
 const CostAnalysis = () => {
   const { t } = useTranslation('cost-analysis');
   const costData = [
-    { category: 'api', value: 45, color: '#3b82f6' },
-    { category: 'excipients', value: 25, color: '#10b981' },
-    { category: 'packaging', value: 20, color: '#f59e0b' },
-    { category: 'labor', value: 10, color: '#ef4444' },
+    { category: 'Direct Materials', value: 45, color: '#3b82f6' },
+    // { category: 'excipients', value: 25, color: '#10b981' },
+    // { category: 'packaging', value: 20, color: '#f59e0b' },
+    // { category: 'labor', value: 10, color: '#ef4444' },
   ];
 
   return (
     <Box p="6">
       <Flex justify="between" align="center" mb="5">
-        <Heading size="6">{t('pharmaceutical-cost-intelligence')}</Heading>
+        <Heading size="6">{t('Cost Analysis')}</Heading>
         <Flex gap="3">
           <Button variant="soft">
             $ {t('export-report')}
@@ -112,7 +112,7 @@ const CostAnalysis = () => {
         <Table.Body>
           {costData.map((category) => (
             <Table.Row key={category.category}>
-              <Table.Cell>{t(`cost-categories.${category.category}`)}</Table.Cell>
+              <Table.Cell>{category.category}</Table.Cell>
               <Table.Cell>$1.4M</Table.Cell>
               <Table.Cell>$1.3M</Table.Cell>
               <Table.Cell>

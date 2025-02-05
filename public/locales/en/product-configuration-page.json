@@ -34,7 +34,7 @@
       "modified": "Modified"
     },
     "main-section": {
-      "title": "Product Formulation Management",
+      "title": "Product Composition Management",
       "new-configuration": "New Configuration",
       "version-history": "Version History",
       "active-formulations": "Active Formulations",
@@ -50,7 +50,9 @@
         "version": "Version",
         "compliance": "Compliance",
         "status": "Status",
-        "actions": "Actions"
+        "actions": "Actions",
+        "product":  "Product",
+        "name": "Name"
       },
       "status": {
         "draft": "Draft"
