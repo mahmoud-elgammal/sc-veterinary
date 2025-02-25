@@ -55,6 +55,7 @@ const NewShipmentModal = () => {
               <Select.Item value="vaccine">Vaccines</Select.Item>
               <Select.Item value="pharma">Pharmaceuticals</Select.Item>
               <Select.Item value="biologics">Biologics</Select.Item>
+              <Select.Item value="other">Other</Select.Item>
             </Select.Content>
           </Select.Root>
 

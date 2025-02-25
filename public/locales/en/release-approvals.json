@@ -5,7 +5,7 @@
     "filter-pending-release": "Pending Release",
     "pending-releases": "Pending Releases",
     "batches-count": "Batches",
-    "oos-results": "OOS Results",
+    "oos-results": "Out of Specification Results",
     "batch-count": "1 Batch",
     "table-headers": {
       "batch-id": "Batch ID",

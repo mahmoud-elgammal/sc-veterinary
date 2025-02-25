@@ -70,13 +70,14 @@ const PharmaSidebar = () => {
     const { height } = useWindowSize();
 
     return (
-        <Box style={{ height }} className="relative bg-stone-100 border-r border-black/10 w-80 transition-all duration-300 max-h-full">
-            <Flex align="start" gap="4" p="4" className="w-80 bg-stone-100 border-r border-black/10">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Future_Supply_Chains_Logo.jpg/1280px-Future_Supply_Chains_Logo.jpg"
-                    className="h-8"
-                    alt="VetChain"
-                />
+        <Box style={{ height }} className="relative bg-stone-100 border-r border-black/10 w-96 transition-all duration-300 max-h-full">
+            <Flex align="start" gap="4" p="4" className="w-96 bg-stone-100 border-r border-black/10">
+                <Box>
+                    <Text as="h1" className="text-2xl font-bold tracking-tight">
+                        <span className="text-blue-600">Supply</span>
+                        <span className="text-gray-800">Chain</span>
+                    </Text>
+                </Box>
                 <Box>
                     <Text as="p" className="text-xs text-black/80">
                         <Trans
@@ -101,7 +102,7 @@ const PharmaSidebar = () => {
                         <NavItem icon={<FileTextIcon />} to="/batch-records">
                             {t('batch-records')}
                         </NavItem>
-                        <NavItem icon={<ClipboardIcon />} to="/scrap-products">
+                        <NavItem icon={<ClipboardIcon />} to="/production-orders">
                             {t('production-orders')}
                         </NavItem>
                         <NavItem icon={<ClipboardIcon />} to="/scrap-products">
@@ -114,10 +115,10 @@ const PharmaSidebar = () => {
                         <NavItem icon={<BoxIcon />} to="/finished-goods-inventory">
                             {t('finished-goods-inventory')}
                         </NavItem>
-                        <NavItem icon={<BoxIcon />} to="/finished-goods-inventory">
+                        <NavItem icon={<BoxIcon />} to="/finished-material-inventory">
                             {t('material-inventory')}
                         </NavItem>
-                        <NavItem icon={<BoxIcon />} to="/finished-goods-inventory">
+                        <NavItem icon={<BoxIcon />} to="/finished-packaging-inventory">
                             {t('packaging-inventory')}
                         </NavItem>
                     </NavGroup>

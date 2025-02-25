@@ -8,7 +8,7 @@
         "ich-q8": "ICH Q8",
         "fda": "FDA Guidance"
       },
-      "formula-components": "Formula Components",
+      "product-components": "Product Components",
       "component-name-placeholder": "Component Name",
       "percentage-placeholder": "%",
       "add-component": "Add Component",
@@ -34,10 +34,10 @@
       "modified": "Modified"
     },
     "main-section": {
-      "title": "Product Composition Management",
+      "title": "Product Structure Management",
       "new-configuration": "New Configuration",
       "version-history": "Version History",
-      "active-formulations": "Active Formulations",
+      "active-configuration": "Active Configuration",
       "components-per-product": "Components/Product",
       "approval-rate": "Approval Rate",
       "first-pass": "First Pass",

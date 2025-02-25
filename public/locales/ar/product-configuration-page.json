@@ -8,7 +8,7 @@
         "ich-q8": "معيار ICH Q8",
         "fda": "إرشادات FDA"
       },
-      "formula-components": "مكونات التركيبة",
+      "product-components": "مكونات التركيبة",
       "component-name-placeholder": "اسم المكون",
       "percentage-placeholder": "النسبة المئوية",
       "add-component": "إضافة مكون",
@@ -37,7 +37,7 @@
       "title": "إدارة تركيبات المنتجات",
       "new-configuration": "تكوين جديد",
       "version-history": "سجل الإصدارات",
-      "active-formulations": "التركيبات النشطة",
+      "active-configuration": "التركيبات النشطة",
       "components-per-product": "مكونات/منتج",
       "approval-rate": "معدل الموافقة",
       "first-pass": "المرور الأول",

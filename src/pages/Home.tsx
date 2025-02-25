@@ -49,7 +49,7 @@ const Home = () => {
 
                     <Card>
                         <Flex direction="column" gap="2">
-                            <Text size="2" className="text-black/60">Pharma Approvals</Text>
+                            <Text size="2" className="text-black/60">Product Approvals</Text>
                             <Heading size="7" className="text-indigo-400">98%</Heading>
                             <ResponsiveContainer width="100%" height={80}>
                                 <LineChart data={[{ value: 4 }, { value: 6 }, { value: 8 }]}>
@@ -84,7 +84,7 @@ const Home = () => {
                         <Table.Root variant="surface">
                             <Table.Header>
                                 <Table.Row>
-                                    <Table.ColumnHeaderCell>Drug ID</Table.ColumnHeaderCell>
+                                    <Table.ColumnHeaderCell>Product ID</Table.ColumnHeaderCell>
                                     <Table.ColumnHeaderCell>Last Temp</Table.ColumnHeaderCell>
                                     <Table.ColumnHeaderCell>Location</Table.ColumnHeaderCell>
                                     <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>

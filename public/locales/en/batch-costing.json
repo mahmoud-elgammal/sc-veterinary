@@ -3,7 +3,7 @@
     "newCostRun": "New Cost Run",
     "compareStandards": "Compare Standards",
     "avgCostUnit": "Avg. Cost/Unit",
-    "yieldVariance": "Yield Variance",
+    "yieldVariance": "Actual Cost",
     "materialWaste": "Material Waste",
     "batchEfficiency": "Batch Efficiency",
     "batchID": "Batch ID",
@@ -28,6 +28,6 @@
     "selectBatch2": "Select Batch 2",
     "comparisonResults": "Comparison Results",
     "totalCostDiff": "Total Cost Difference",
-    "materialVariance": "Material Variance",
+    "materialVariance": "Profit Margin",
     "close": "Close"
 }

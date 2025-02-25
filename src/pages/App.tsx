@@ -31,6 +31,10 @@ import QualityAuditors from './QualityAuditors';
 import ReleaseApprovals from './ReleaseApprovals';
 import SalesTrends from './SalesTrends';
 import SecurityPage from './SecurityPage';
+
+import FinishedMaterialInventory from './FinishedMaterialInventory';
+import FinishedPackagingInventory from './FinishedPackagingInventory';
+
 import ProductConfiguration from './ProductConfiguration'
 import { Toaster } from 'sonner'
 import ComponentSpecification from './ComponentSpecification';
@@ -90,6 +94,8 @@ const App = () => {
 
                                     {/* Inventory & Supply Chain Routes */}
                                     <Route path="/finished-goods-inventory" element={<FinishedGoodsInventory />} />
+                                    <Route path="/finished-material-inventory" element={<FinishedMaterialInventory />} />
+                                    <Route path="/finished-packaging-inventory" element={<FinishedPackagingInventory />} />
                                     <Route path="/distributors" element={<Distributors />} />
                                     <Route path="/end-customers" element={<EndCustomers />} />
                                     <Route path="/pharmacy-partners" element={<PharmacyPartners />} />

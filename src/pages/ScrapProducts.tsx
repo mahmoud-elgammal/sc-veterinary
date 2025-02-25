@@ -27,7 +27,7 @@ const ScrapProducts = () => {
     const [scrapWeight, setScrapWeight] = useState('');
     const [selectedBatch, setSelectedBatch] = useState('');
     const [scrapType, setScrapType] = useState('partial');
-    const [removalMethod, setRemovalMethod] = useState('fifo');
+    const [removalMethod, setRemovalMethod] = useState('Recycled');
 
     // Sample scrap products data
     const scrapProducts = [
@@ -39,7 +39,7 @@ const ScrapProducts = () => {
             status: 'status.pending',
             recordedWeight: 5.2,
             recordedDate: '2024-02-20',
-            removalMethod: 'fifo'
+            removalMethod: 'recycled'
         },
         {
             id: 'SCP002',
@@ -49,7 +49,7 @@ const ScrapProducts = () => {
             status: 'status.approved',
             recordedWeight: 8.1,
             recordedDate: '2024-02-21',
-            removalMethod: 'lifo'
+            removalMethod: 'disposed'
         },
     ];
 

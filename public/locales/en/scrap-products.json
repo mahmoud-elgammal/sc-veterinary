@@ -31,14 +31,10 @@
         "full": "Full"
       },
       "removalMethods": {
-        "recycling": "Recycling",
-        "disposal": "Disposal",
-        "donation": "Donation",
-        "fifo": "FIFO (First In, First Out)",
-        "lifo": "LIFO (Last In, Last Out)",
-        "fefo": "FEFO (First Expired, First Out)",
-        "erto": "ERSO (Eccentric Removal Strategy Option)",
-        "too": "TOO (Time-based Order Out)"
+        "recycled": "Recycled",
+        "disposed": "Disposed",
+        "reused": "Reused",
+        "incinerated": "Incinerated"
       },
       "status": {
         "pending": "Pending",

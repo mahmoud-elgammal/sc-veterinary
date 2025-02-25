@@ -1,5 +1,7 @@
 {
     "finished-goods-inventory": "Finished Goods Inventory",
+    "finished-martial-inventory": "Finished Material Inventory",
+    "finished-packaging-inventory": "Finished Packaging Inventory",
     "new-receipt": "New Receipt",
     "export-csv": "Export CSV",
     "total-skus": "Total SKUs",
@@ -13,7 +15,7 @@
     "released": "Released",
     "quarantined-status": "Quarantined",
     "product": "Product",
-    "batch": "Batch",
+    "product-category": "Product Category",
     "quantity": "Quantity",
     "location": "Location",
     "status": "Status",

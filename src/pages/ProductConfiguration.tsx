@@ -41,10 +41,13 @@ const ProductConfiguration = () => {
             status: 'Draft',
             version: 'v1.2',
             compliance: 'ICH Q11',
+            cost: '$1200',
+            price: '$2500',
+            removalMethod: 'Chemical Dissolution',
             description: 'Veterinary antiparasitic suspension for oral administration',
             formula: [
-                { component: 'Albendazole', percentage: 5.2 },
-                { component: 'Suspending Agent', percentage: 2.8 }
+                { component: 'Albendazole', width: '250mm' },
+                { component: 'Suspending Agent', width: '120mm' }
             ]
         },
     ];
@@ -87,7 +90,7 @@ const ProductConfiguration = () => {
                     </Select.Root>
 
                     <Flex direction="column" gap="2">
-                        <Text weight="bold">{t('new-configuration-modal.formula-components')}</Text>
+                        <Text weight="bold">{t('new-configuration-modal.product-components')}</Text>
                         {[1, 2, 3].map((_, i) => (
                             <Flex key={i} gap="3" align="center">
                                 <TextField.Root style={{ flex: 2 }}>
@@ -244,7 +247,7 @@ const ProductConfiguration = () => {
             <Grid columns="3" gap="4" mb="5">
                 <Card>
                     <Flex direction="column" gap="1">
-                        <Text size="2">{t('main-section.active-formulations')}</Text>
+                        <Text size="2">{t('main-section.active-configuration')}</Text>
                         <Heading size="7">24</Heading>
                         <Text size="1" className="text-green-500">3 New Drafts</Text>
                     </Flex>
@@ -266,78 +269,59 @@ const ProductConfiguration = () => {
             </Grid>
 
             <Table.Root variant="surface">
-                <Table.Header>
-                    <Table.Row>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.product-id')}</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.name')}</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.components')}</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.version')}</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.compliance')}</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.status')}</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell>{t('main-section.table-headers.actions')}</Table.ColumnHeaderCell>
-                    </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                    {products.map(product => (
-                        <Table.Row key={product.id}>
-                            <Table.Cell>{product.id}</Table.Cell>
-                            <Table.Cell>{product.name}</Table.Cell>
-                            <Table.Cell>{product.components}</Table.Cell>
-                            <Table.Cell>{product.version}</Table.Cell>
-                            <Table.Cell>
-                                <Badge variant="soft">{product.compliance}</Badge>
-                            </Table.Cell>
-                            <Table.Cell>
-                                <Badge color={product.status === 'Draft' ? 'blue' : 'green'}>
-                                    {t('main-section.status.draft')}
-                                </Badge>
-                            </Table.Cell>
-                            <Table.Cell>
-                                <DropdownMenu.Root>
-                                    <DropdownMenu.Trigger>
-                                        <Button variant="ghost">•••</Button>
-                                    </DropdownMenu.Trigger>
-                                    <DropdownMenu.Content>
-                                        <DropdownMenu.Item>
-                                            <FileTextIcon /> {t('main-section.actions.view-spec')}
-                                        </DropdownMenu.Item>
-                                        <DropdownMenu.Item>
-                                            {t('main-section.actions.history')}
-                                        </DropdownMenu.Item>
-                                    </DropdownMenu.Content>
-                                </DropdownMenu.Root>
-                            </Table.Cell>
-                        </Table.Row>
-                    ))}
-                </Table.Body>
-            </Table.Root>
+        <Table.Header>
+            <Table.Row>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.product-id')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.name')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.components')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.cost')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.price')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.removal-method')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.version')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.compliance')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.status')}</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>{t('main-section.table-headers.actions')}</Table.ColumnHeaderCell>
+            </Table.Row>
+        </Table.Header>
+        <Table.Body>
+            {products.map(product => (
+                <Table.Row key={product.id}>
+                    <Table.Cell>{product.id}</Table.Cell>
+                    <Table.Cell>{product.name}</Table.Cell>
+                    <Table.Cell>{product.components}</Table.Cell>
+                    <Table.Cell>{product.cost}</Table.Cell>
+                    <Table.Cell>{product.price}</Table.Cell>
+                    <Table.Cell>{product.removalMethod}</Table.Cell>
+                    <Table.Cell>{product.version}</Table.Cell>
+                    <Table.Cell>
+                        <Badge variant="soft">{product.compliance}</Badge>
+                    </Table.Cell>
+                    <Table.Cell>
+                        <Badge color={product.status === 'Draft' ? 'blue' : 'green'}>
+                            {t('main-section.status.draft')}
+                        </Badge>
+                    </Table.Cell>
+                    <Table.Cell>
+                        <DropdownMenu.Root>
+                            <DropdownMenu.Trigger>
+                                <Button variant="ghost">•••</Button>
+                            </DropdownMenu.Trigger>
+                            <DropdownMenu.Content>
+                                <DropdownMenu.Item>
+                                    <FileTextIcon /> {t('main-section.actions.view-spec')}
+                                </DropdownMenu.Item>
+                                <DropdownMenu.Item>
+                                    {t('main-section.actions.history')}
+                                </DropdownMenu.Item>
+                            </DropdownMenu.Content>
+                        </DropdownMenu.Root>
+                    </Table.Cell>
+                </Table.Row>
+            ))}
+        </Table.Body>
+    </Table.Root>
         </Box>
     );
 };
 
 export default ProductConfiguration;
-
-
-{/* <Table.Body>
-{products.map(product => (
-    <Table.Row key={product.id}>
-        <Table.Cell>
-            <DropdownMenu.Root>
-                <DropdownMenu.Content>
-                    <DropdownMenu.Item 
-                        onClick={() => {
-                            setSelectedProduct(product);
-                            setViewSpecModalOpen(true);
-                        }}
-                    >
-                        <FileTextIcon /> View Spec
-                    </DropdownMenu.Item>
-                    <DropdownMenu.Item>
-                        History
-                    </DropdownMenu.Item>
-                </DropdownMenu.Content>
-            </DropdownMenu.Root>
-        </Table.Cell>
-    </Table.Row>
-))}
-</Table.Body> */}

@@ -1,10 +1,10 @@
 {
     "pharmaceutical-cost-intelligence": "Pharmaceutical Cost Intelligence",
     "export-report": "Export Report",
-    "cogs": "COGS",
+    "cogs": "Benchmark Price",
     "material-variance": "Material Variance",
     "yield-efficiency": "Yield Efficiency",
-    "waste-cost": "Waste Cost",
+    "waste-cost": "target Cost",
     "cost-composition": "Cost Composition",
     "cost-trend-analysis": "Cost Trend Analysis",
     "cost-category": "Cost Category",

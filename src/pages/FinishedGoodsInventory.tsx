@@ -33,7 +33,7 @@ const FinishedGoodsInventory = () => {
     {
       id: 'FG23045',
       product: 'Antiparasitic Injection',
-      batch: 'VC23001',
+      productCategory: 'VC23001',
       quantity: 1245,
       location: 'Zone B-12',
       status: 'Released',
@@ -43,7 +43,7 @@ const FinishedGoodsInventory = () => {
     {
       id: 'FG23048',
       product: 'Antiparasitic Injection',
-      batch: 'VC23001',
+      productCategory: 'VC23001',
       quantity: 400,
       location: 'Zone B-12',
       status: 'Released',
@@ -53,7 +53,7 @@ const FinishedGoodsInventory = () => {
     {
       id: 'FG23048',
       product: 'Antiparasitic Injection',
-      batch: 'VC23001',
+      productCategory: 'VC23001',
       quantity: 800,
       location: 'Zone B-12',
       status: 'Released',
@@ -63,7 +63,7 @@ const FinishedGoodsInventory = () => {
     {
       id: 'FG23048',
       product: 'Antiparasitic Injection',
-      batch: 'VC23001',
+      productCategory: 'VC23001',
       quantity: 1300,
       location: 'Zone B-12',
       status: 'Released',
@@ -128,7 +128,7 @@ const FinishedGoodsInventory = () => {
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>{t('product')}</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>{t('batch')}</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>{t('product-category')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('quantity')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('Free To Use')}</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>{t('Incoming')}</Table.ColumnHeaderCell>
@@ -149,7 +149,7 @@ const FinishedGoodsInventory = () => {
                   {item.product}
                 </Flex>
               </Table.Cell>
-              <Table.Cell>{item.batch}</Table.Cell>
+              <Table.Cell>{item.productCategory}</Table.Cell>
               <Table.Cell>
                 <Badge variant="outline">{item.quantity} {t('units')}</Badge>
               </Table.Cell>
