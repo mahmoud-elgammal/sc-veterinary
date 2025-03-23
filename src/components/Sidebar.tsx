@@ -73,7 +73,7 @@ const PharmaSidebar = () => {
         <Box style={{ height }} className="relative bg-stone-100 border-r border-black/10 w-96 transition-all duration-300 max-h-full">
             <Flex align="start" gap="4" p="4" className="w-96 bg-stone-100 border-r border-black/10">
                 <Box>
-                    <Text as="h1" className="text-2xl font-bold tracking-tight">
+                    <Text as="p" className="text-2xl font-bold tracking-tight">
                         <span className="text-blue-600">Supply</span>
                         <span className="text-gray-800">Chain</span>
                     </Text>
